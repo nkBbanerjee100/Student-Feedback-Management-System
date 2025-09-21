@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Feedback</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e0eafc, #cfdef3);
+            min-height: 100vh;
+            padding: 1rem;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #007bff;
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1.5rem;
+            z-index: 100;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .top-bar h2 {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-logout {
+            background: linear-gradient(135deg, #ff4d4d, #cc0000);
+        }
+
+        .btn-logout:hover {
+            background: linear-gradient(135deg, #cc0000, #ff4d4d);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 0, 0, 0.6);
+        }
+
+        .btn-logs {
+            background: linear-gradient(135deg, #17a2b8, #117a8b);
+        }
+
+        .btn-logs:hover {
+            background: linear-gradient(135deg, #117a8b, #17a2b8);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(23, 162, 184, 0.6);
+        }
+
+        /* Container */
+        .container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            overflow-x: auto;
+        }
+
+        /* Search Box */
+        .search-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1rem;
+        }
+
+        .search-container input {
+            padding: 0.5rem 1rem;
+            width: 250px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-container input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #007bff;
+            color: #fff;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        tr {
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        tr:hover {
+            background: #e6f0ff;
+            transform: scale(1.01);
+        }
+
+        /* Rating Badge */
+        .rating-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: #fff;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+        }
+
+        .rating-high {
+            background: #28a745;
+        }
+
+        .rating-medium {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .rating-low {
+            background: #dc3545;
+        }
+
+        /* No Data */
+        .no-data {
+            text-align: center;
+            padding: 20px;
+            font-style: italic;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .search-container {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <h2>📋 All Feedback</h2>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            {% if session.get('admin_email') %}
+            <a href="{{ url_for('admin.view_logs') }}" class="btn btn-logs">📝 View Logs</a>
+            {% endif %}
+            {% if session.get('student_email') %}
+            <form action="{{ url_for('student.logout') }}" method="get">
+                <button type="submit" class="btn btn-logout">🚪 Logout</button>
+            </form>
+            {% elif session.get('admin_email') %}
+            <form action="{{ url_for('admin.logout') }}" method="get">
+                <button type="submit" class="btn btn-logout">🚪 Logout</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Optional Search -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search feedback...">
+        </div>
+
+        <table id="feedbackTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Student Email</th>
+                    <th>Course</th>
+                    <th>Rating</th>
+                    <th>Comments</th>
+                    <th>Submitted At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if feedback_list %}
+                {% for fb in feedback_list %}
+                <tr>
+                    <td>{{ fb.id }}</td>
+                    <td>{{ fb.student_email }}</td>
+                    <td>{{ fb.course_name }}</td>
+                    <td>
+                        {% if fb.rating >= 4 %}
+                        <span class="rating-badge rating-high">{{ fb.rating }}</span>
+                        {% elif fb.rating == 3 %}
+                        <span class="rating-badge rating-medium">{{ fb.rating }}</span>
+                        {% else %}
+                        <span class="rating-badge rating-low">{{ fb.rating }}</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ fb.comments }}</td>
+                    <td>{{ fb.submitted_at }}</td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <td colspan="6" class="no-data">No feedback available</td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Simple search filter
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('keyup', function () {
+            const filter = searchInput.value.toLowerCase();
+            const rows = document.querySelectorAll('#feedbackTable tbody tr');
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                row.style.display = text.includes(filter) ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+
+</html>

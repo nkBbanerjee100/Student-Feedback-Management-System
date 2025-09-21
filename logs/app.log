@@ -1,0 +1,377 @@
+[2025-09-19 15:51:57] [DB_CONNECT] Database connected successfully
+[2025-09-19 15:51:57] [DB_ERROR] Query execution failed: 1054 (42S22): Unknown column 'email' in 'field list'
+[2025-09-19 15:51:57] [DB_DISCONNECT] Database connection closed
+[2025-09-19 15:55:22] [DB_CONNECT] Database connected successfully
+[2025-09-19 15:55:22] [DB_QUERY] Executed query: INSERT INTO student (name, email, password) VALUES (%s, %s, %s)
+[2025-09-19 15:55:22] [DB_QUERY] Fetched data with query: SELECT * FROM student
+[2025-09-19 15:55:22] [DB_DISCONNECT] Database connection closed
+[2025-09-19 15:55:46] [DB_CONNECT] Database connected successfully
+[2025-09-19 15:55:46] [DB_ERROR] Query execution failed: 1062 (23000): Duplicate entry 'Test Student' for key 'student.PRIMARY'
+[2025-09-19 15:55:46] [DB_DISCONNECT] Database connection closed
+[2025-09-19 15:55:50] [DB_CONNECT] Database connected successfully
+[2025-09-19 15:55:50] [DB_ERROR] Query execution failed: 1062 (23000): Duplicate entry 'Test Student' for key 'student.PRIMARY'
+[2025-09-19 15:55:50] [DB_DISCONNECT] Database connection closed
+[2025-09-19 15:56:04] [DB_CONNECT] Database connected successfully
+[2025-09-19 15:56:04] [DB_QUERY] Fetched data with query: SELECT * FROM student
+[2025-09-19 15:56:04] [DB_DISCONNECT] Database connection closed
+[2025-09-20 17:52:09] [FEEDBACK] Test feedback log entry
+[2025-09-20 17:53:37] [DB_CONNECT] Database connected successfully
+[2025-09-20 17:53:37] [DB_QUERY] Fetched data with query: SELECT id, name FROM courses
+[2025-09-20 17:53:37] [DB_QUERY] Fetched data with query: SELECT course_id FROM feedback WHERE student_email=%s
+[2025-09-20 17:53:37] [DB_DISCONNECT] Database connection closed
+[2025-09-20 17:53:44] [DB_CONNECT] Database connected successfully
+[2025-09-20 17:53:44] [DB_QUERY] Fetched data with query: SELECT id, name FROM courses
+[2025-09-20 17:53:44] [DB_QUERY] Fetched data with query: SELECT course_id FROM feedback WHERE student_email=%s
+[2025-09-20 17:53:44] [DB_DISCONNECT] Database connection closed
+[2025-09-20 17:53:44] [DB_CONNECT] Database connected successfully
+[2025-09-20 17:53:44] [DB_QUERY] Fetched data with query: SELECT * FROM feedback WHERE student_email=%s AND course_id=%s
+[2025-09-20 17:53:44] [DB_QUERY] Executed query: 
+                INSERT INTO feedback (student_email, course_id, rating, comments)
+                VALUES (%s,%s,%s,%s)
+            
+[2025-09-20 17:53:44] [FEEDBACK] Feedback submitted by nkbanerjee3@gmail.com for course_id 4 at 2025-09-20 17:53:44 | Rating: 4 | Comment: good
+[2025-09-20 17:53:44] [DB_DISCONNECT] Database connection closed
+[2025-09-20 22:56:00] [DB_CONNECT] Database connected successfully
+[2025-09-20 22:56:00] [DB_QUERY] Fetched data with query: SELECT * FROM student WHERE email=%s AND password=%s
+[2025-09-20 22:56:00] [LOGIN_FAIL] Invalid credentials for abc@gmail.com
+[2025-09-20 22:56:00] [DB_DISCONNECT] Database connection closed
+[2025-09-20 22:59:28] [DB_CONNECT] Database connected successfully
+[2025-09-20 22:59:28] [DB_QUERY] Fetched data with query: SELECT id, name FROM courses
+[2025-09-20 22:59:28] [DB_QUERY] Fetched data with query: SELECT course_id FROM feedback WHERE student_email=%s
+[2025-09-20 22:59:28] [DB_DISCONNECT] Database connection closed
+[2025-09-20 22:59:33] [DB_CONNECT] Database connected successfully
+[2025-09-20 22:59:33] [DB_QUERY] Fetched data with query: SELECT id, name FROM courses
+[2025-09-20 22:59:33] [DB_QUERY] Fetched data with query: SELECT course_id FROM feedback WHERE student_email=%s
+[2025-09-20 22:59:33] [DB_DISCONNECT] Database connection closed
+[2025-09-20 22:59:33] [DB_CONNECT] Database connected successfully
+[2025-09-20 22:59:33] [DB_QUERY] Fetched data with query: SELECT * FROM feedback WHERE student_email=%s AND course_id=%s
+[2025-09-20 22:59:33] [DB_QUERY] Executed query: 
+                INSERT INTO feedback (student_email, course_id, rating, comments)
+                VALUES (%s,%s,%s,%s)
+            
+[2025-09-20 22:59:33] [FEEDBACK] Feedback submitted by abc@gmail.com for course_id 1 at 2025-09-20 22:59:33 | Rating: 1 | Comment: doijiodh
+[2025-09-20 22:59:33] [DB_DISCONNECT] Database connection closed
+[2025-09-20 22:59:42] [DB_CONNECT] Database connected successfully
+[2025-09-20 22:59:42] [DB_QUERY] Fetched data with query: 
+                SELECT f.id, f.student_email, c.name AS course_name, f.rating, f.comments, f.submitted_at
+                FROM feedback f
+                JOIN courses c ON f.course_id = c.id
+                ORDER BY f.submitted_at DESC
+            
+[2025-09-20 22:59:42] [DB_DISCONNECT] Database connection closed
+[2025-09-21 09:31:16] [DB_CONNECT] Database connected successfully
+[2025-09-21 09:31:16] [DB_QUERY] Fetched data with query: SELECT * FROM student WHERE email=%s 
+[2025-09-21 09:31:16] [LOGIN_FAIL] Invalid credentials for abc@gmail.com
+[2025-09-21 09:31:16] [DB_DISCONNECT] Database connection closed
+[2025-09-21 09:31:37] [DB_CONNECT] Database connected successfully
+[2025-09-21 09:31:37] [DB_QUERY] Fetched data with query: SELECT * FROM student WHERE email=%s 
+[2025-09-21 09:31:37] [LOGIN_FAIL] Wrong password for nkbanerjee3@gmail.com
+[2025-09-21 09:31:37] [DB_DISCONNECT] Database connection closed
+[2025-09-21 09:33:40] [DB_CONNECT] Database connected successfully
+[2025-09-21 09:33:40] [DB_ERROR] Query execution failed: 1406 (22001): Data too long for column 'password' at row 1
+[2025-09-21 09:33:40] [REGISTER_FAIL] Error: 1406 (22001): Data too long for column 'password' at row 1
+[2025-09-21 09:33:40] [DB_DISCONNECT] Database connection closed
+[2025-09-21 09:33:46] [DB_CONNECT] Database connected successfully
+[2025-09-21 09:33:46] [DB_QUERY] Fetched data with query: SELECT * FROM student WHERE email=%s 
+[2025-09-21 09:33:46] [LOGIN_FAIL] Invalid credentials for test2@gmail.com
+[2025-09-21 09:33:46] [DB_DISCONNECT] Database connection closed
+[2025-09-21 09:35:52] [DB_CONNECT] Database connected successfully
+[2025-09-21 09:35:53] [DB_ERROR] Query execution failed: 1406 (22001): Data too long for column 'password' at row 1
+[2025-09-21 09:35:53] [REGISTER_FAIL] Error: 1406 (22001): Data too long for column 'password' at row 1
+[2025-09-21 09:35:53] [DB_DISCONNECT] Database connection closed
+[2025-09-21 09:38:16] [DB_CONNECT] Database connected successfully
+[2025-09-21 09:38:16] [DB_QUERY] Executed query: INSERT INTO student(name, email, password) VALUES (%s, %s, %s)
+[2025-09-21 09:38:16] [REGISTER] Student abc@gmail.com registered successfully
+[2025-09-21 09:38:16] [DB_DISCONNECT] Database connection closed
+[2025-09-21 09:38:31] [DB_CONNECT] Database connected successfully
+[2025-09-21 09:38:31] [DB_QUERY] Fetched data with query: SELECT * FROM student WHERE email=%s 
+[2025-09-21 09:38:32] [LOGIN_FAIL] Wrong password for abc@gmail.com
+[2025-09-21 09:38:32] [DB_DISCONNECT] Database connection closed
+[2025-09-21 09:40:12] [DB_CONNECT] Database connected successfully
+[2025-09-21 09:40:12] [DB_QUERY] Fetched data with query: SELECT * FROM student WHERE email=%s 
+[2025-09-21 09:40:12] [LOGIN_FAIL] Wrong password for abc@gmail.com
+[2025-09-21 09:40:12] [DB_DISCONNECT] Database connection closed
+[2025-09-21 09:40:55] [DB_CONNECT] Database connected successfully
+[2025-09-21 09:40:55] [DB_QUERY] Fetched data with query: SELECT * FROM student WHERE email=%s 
+[2025-09-21 09:40:56] [LOGIN_FAIL] Wrong password for abc@gmail.com
+[2025-09-21 09:40:56] [DB_DISCONNECT] Database connection closed
+[2025-09-21 09:49:59] [DB_CONNECT] Database connected successfully
+[2025-09-21 09:49:59] [DB_QUERY] Fetched data with query: SELECT * FROM student WHERE email=%s 
+[2025-09-21 09:49:59] [LOGIN_FAIL] Wrong password for abc@gmail.com
+[2025-09-21 09:49:59] [DB_DISCONNECT] Database connection closed
+[2025-09-21 09:53:20] [DB_CONNECT] Database connected successfully
+[2025-09-21 09:53:20] [DB_QUERY] Fetched data with query: SELECT * FROM student WHERE email=%s 
+[2025-09-21 09:53:21] [LOGIN_FAIL] Wrong password for abc@gmail.com
+[2025-09-21 09:53:21] [DB_DISCONNECT] Database connection closed
+[2025-09-21 09:55:55] [DB_CONNECT] Database connected successfully
+[2025-09-21 09:55:55] [DB_QUERY] Fetched data with query: SELECT * FROM student WHERE email=%s 
+[2025-09-21 09:55:55] [LOGIN_FAIL] Wrong password for abc@gmail.com
+[2025-09-21 09:55:55] [DB_DISCONNECT] Database connection closed
+[2025-09-21 09:56:03] [DB_CONNECT] Database connected successfully
+[2025-09-21 09:56:03] [DB_QUERY] Fetched data with query: SELECT * FROM student WHERE email=%s 
+[2025-09-21 09:56:03] [LOGIN_FAIL] Wrong password for abc@gmail.com
+[2025-09-21 09:56:03] [DB_DISCONNECT] Database connection closed
+[2025-09-21 09:56:22] [DB_CONNECT] Database connected successfully
+[2025-09-21 09:56:22] [DB_QUERY] Fetched data with query: SELECT * FROM student WHERE email=%s 
+[2025-09-21 09:56:22] [LOGIN_FAIL] Wrong password for abc@gmail.com
+[2025-09-21 09:56:22] [DB_DISCONNECT] Database connection closed
+[2025-09-21 09:56:40] [DB_CONNECT] Database connected successfully
+[2025-09-21 09:56:40] [DB_QUERY] Executed query: INSERT INTO student(name, email, password) VALUES (%s, %s, %s)
+[2025-09-21 09:56:40] [REGISTER] Student test@gmail.com registered successfully
+[2025-09-21 09:56:40] [DB_DISCONNECT] Database connection closed
+[2025-09-21 09:56:57] [DB_CONNECT] Database connected successfully
+[2025-09-21 09:56:57] [DB_QUERY] Fetched data with query: SELECT * FROM student WHERE email=%s 
+[2025-09-21 09:56:57] [LOGIN_FAIL] Wrong password for test@gmail.com
+[2025-09-21 09:56:57] [DB_DISCONNECT] Database connection closed
+[2025-09-21 09:57:03] [DB_CONNECT] Database connected successfully
+[2025-09-21 09:57:03] [DB_QUERY] Fetched data with query: SELECT * FROM student WHERE email=%s 
+[2025-09-21 09:57:03] [LOGIN] Student test@gmail.com logged in successfully
+[2025-09-21 09:57:03] [DB_DISCONNECT] Database connection closed
+[2025-09-21 09:59:00] [DB_CONNECT] Database connected successfully
+[2025-09-21 09:59:00] [DB_QUERY] Fetched data with query: SELECT * FROM student WHERE email=%s 
+[2025-09-21 09:59:00] [LOGIN_FAIL] Wrong password for test@gmail.com
+[2025-09-21 09:59:00] [DB_DISCONNECT] Database connection closed
+[2025-09-21 09:59:08] [DB_CONNECT] Database connected successfully
+[2025-09-21 09:59:08] [DB_QUERY] Fetched data with query: SELECT * FROM student WHERE email=%s 
+[2025-09-21 09:59:08] [LOGIN_FAIL] Wrong password for test@gmail.com
+[2025-09-21 09:59:08] [DB_DISCONNECT] Database connection closed
+[2025-09-21 09:59:16] [DB_CONNECT] Database connected successfully
+[2025-09-21 09:59:16] [DB_QUERY] Fetched data with query: SELECT * FROM student WHERE email=%s 
+[2025-09-21 09:59:17] [LOGIN] Student test@gmail.com logged in successfully
+[2025-09-21 09:59:17] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:01:41] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:01:41] [DB_QUERY] Fetched data with query: 
+                SELECT f.id, f.student_email, c.name AS course_name, f.rating, f.comments, f.submitted_at
+                FROM feedback f
+                JOIN courses c ON f.course_id = c.id
+                ORDER BY f.submitted_at DESC
+            
+[2025-09-21 10:01:41] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:01:51] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:01:51] [DB_QUERY] Fetched data with query: SELECT id, name FROM courses
+[2025-09-21 10:01:51] [DB_QUERY] Fetched data with query: SELECT course_id FROM feedback WHERE student_email=%s
+[2025-09-21 10:01:51] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:02:13] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:02:13] [DB_QUERY] Fetched data with query: SELECT id, name FROM courses
+[2025-09-21 10:02:13] [DB_QUERY] Fetched data with query: SELECT course_id FROM feedback WHERE student_email=%s
+[2025-09-21 10:02:13] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:04:16] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:04:16] [DB_QUERY] Fetched data with query: SELECT id, name FROM courses
+[2025-09-21 10:04:16] [DB_QUERY] Fetched data with query: SELECT course_id FROM feedback WHERE student_email=%s
+[2025-09-21 10:04:16] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:04:16] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:04:16] [DB_QUERY] Fetched data with query: SELECT * FROM feedback WHERE student_email=%s AND course_id=%s
+[2025-09-21 10:04:16] [DB_QUERY] Executed query: 
+                INSERT INTO feedback (student_email, course_id, rating, comments)
+                VALUES (%s,%s,%s,%s)
+            
+[2025-09-21 10:04:16] [FEEDBACK] Feedback submitted by test@gmail.com for course_id 1 at 2025-09-21 10:04:16 | Rating: 2 | Comment: good
+[2025-09-21 10:04:16] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:04:20] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:04:20] [DB_QUERY] Fetched data with query: SELECT id, name FROM courses
+[2025-09-21 10:04:20] [DB_QUERY] Fetched data with query: SELECT course_id FROM feedback WHERE student_email=%s
+[2025-09-21 10:04:20] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:06:13] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:06:13] [DB_QUERY] Fetched data with query: SELECT id, name FROM courses
+[2025-09-21 10:06:13] [DB_QUERY] Fetched data with query: SELECT course_id FROM feedback WHERE student_email=%s
+[2025-09-21 10:06:13] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:06:54] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:06:54] [DB_QUERY] Fetched data with query: 
+                SELECT f.id, f.student_email, c.name AS course_name, f.rating, f.comments, f.submitted_at
+                FROM feedback f
+                JOIN courses c ON f.course_id = c.id
+                ORDER BY f.submitted_at DESC
+            
+[2025-09-21 10:06:54] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:07:24] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:07:24] [DB_QUERY] Fetched data with query: SELECT * FROM admins WHERE email=%s
+[2025-09-21 10:07:24] [ADMIN_LOGIN_FAIL] Invalid credentials for abc@gmail.com
+[2025-09-21 10:07:24] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:08:13] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:08:13] [DB_QUERY] Fetched data with query: SELECT * FROM student WHERE email=%s 
+[2025-09-21 10:08:13] [LOGIN_FAIL] Wrong password for abc@gmail.com
+[2025-09-21 10:08:13] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:11:07] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:11:07] [DB_QUERY] Fetched data with query: SELECT id, name FROM courses
+[2025-09-21 10:11:07] [DB_QUERY] Fetched data with query: SELECT course_id FROM feedback WHERE student_email=%s
+[2025-09-21 10:11:07] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:12:40] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:12:40] [DB_QUERY] Fetched data with query: SELECT id, name FROM courses
+[2025-09-21 10:12:40] [DB_QUERY] Fetched data with query: SELECT course_id FROM feedback WHERE student_email=%s
+[2025-09-21 10:12:40] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:15:19] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:15:19] [DB_QUERY] Fetched data with query: SELECT id, name FROM courses
+[2025-09-21 10:15:19] [DB_QUERY] Fetched data with query: SELECT course_id FROM feedback WHERE student_email=%s
+[2025-09-21 10:15:19] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:15:32] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:15:32] [DB_QUERY] Fetched data with query: 
+                SELECT f.id, f.student_email, c.name AS course_name, f.rating, f.comments, f.submitted_at
+                FROM feedback f
+                JOIN courses c ON f.course_id = c.id
+                ORDER BY f.submitted_at DESC
+            
+[2025-09-21 10:15:32] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:15:34] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:15:34] [DB_QUERY] Fetched data with query: 
+                SELECT f.id, f.student_email, c.name AS course_name, f.rating, f.comments, f.submitted_at
+                FROM feedback f
+                JOIN courses c ON f.course_id = c.id
+                ORDER BY f.submitted_at DESC
+            
+[2025-09-21 10:15:34] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:17:46] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:17:46] [DB_QUERY] Fetched data with query: 
+                SELECT f.id, f.student_email, c.name AS course_name, f.rating, f.comments, f.submitted_at
+                FROM feedback f
+                JOIN courses c ON f.course_id = c.id
+                ORDER BY f.submitted_at DESC
+            
+[2025-09-21 10:17:46] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:17:51] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:17:51] [DB_QUERY] Fetched data with query: SELECT id, name FROM courses
+[2025-09-21 10:17:51] [DB_QUERY] Fetched data with query: SELECT course_id FROM feedback WHERE student_email=%s
+[2025-09-21 10:17:51] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:18:00] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:18:00] [DB_QUERY] Fetched data with query: 
+                SELECT f.id, f.student_email, c.name AS course_name, f.rating, f.comments, f.submitted_at
+                FROM feedback f
+                JOIN courses c ON f.course_id = c.id
+                ORDER BY f.submitted_at DESC
+            
+[2025-09-21 10:18:00] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:21:31] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:21:31] [DB_QUERY] Fetched data with query: SELECT * FROM admins WHERE email=%s
+[2025-09-21 10:21:31] [ADMIN_LOGIN_FAIL] Invalid credentials for abc@gmail.com
+[2025-09-21 10:21:31] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:23:49] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:23:49] [DB_QUERY] Executed query: INSERT INTO admins (name, email, password) VALUES (%s, %s, %s)
+[2025-09-21 10:23:49] [ADMIN_REGISTER] Admin nk@gmail.com registered successfully
+[2025-09-21 10:23:49] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:24:11] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:24:11] [DB_QUERY] Fetched data with query: SELECT * FROM admins WHERE email=%s
+[2025-09-21 10:24:11] [ADMIN_LOGIN] Admin nk@gmail.com logged in successfully
+[2025-09-21 10:24:11] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:24:44] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:24:44] [DB_QUERY] Fetched data with query: SELECT * FROM admins WHERE email=%s
+[2025-09-21 10:24:44] [ADMIN_LOGIN] Admin nk@gmail.com logged in successfully
+[2025-09-21 10:24:44] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:24:55] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:24:55] [DB_QUERY] Fetched data with query: 
+                SELECT f.id, f.student_email, c.name AS course_name, f.rating, f.comments, f.submitted_at
+                FROM feedback f
+                JOIN courses c ON f.course_id = c.id
+                ORDER BY f.submitted_at DESC
+            
+[2025-09-21 10:24:55] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:25:52] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:25:52] [DB_QUERY] Fetched data with query: SELECT * FROM admins WHERE email=%s
+[2025-09-21 10:25:52] [ADMIN_LOGIN] Admin nk@gmail.com logged in successfully
+[2025-09-21 10:25:52] [DB_DISCONNECT] Database connection closed
+[2025-09-21 10:38:01] [DB_CONNECT] Database connected successfully
+[2025-09-21 10:38:01] [DB_QUERY] Fetched data with query: SELECT * FROM admins WHERE email=%s
+[2025-09-21 10:38:01] [ADMIN_LOGIN] Admin nk@gmail.com logged in successfully
+[2025-09-21 10:38:01] [DB_DISCONNECT] Database connection closed
+[2025-09-21 16:14:17] [DB_CONNECT] Database connected successfully
+[2025-09-21 16:14:17] [DB_QUERY] Fetched data with query: SELECT * FROM student WHERE email=%s 
+[2025-09-21 16:14:17] [LOGIN] Student test@gmail.com logged in successfully
+[2025-09-21 16:14:17] [DB_DISCONNECT] Database connection closed
+[2025-09-21 16:14:26] [DB_CONNECT] Database connected successfully
+[2025-09-21 16:14:26] [DB_QUERY] Fetched data with query: SELECT id, name FROM courses
+[2025-09-21 16:14:26] [DB_QUERY] Fetched data with query: SELECT course_id FROM feedback WHERE student_email=%s
+[2025-09-21 16:14:26] [DB_DISCONNECT] Database connection closed
+[2025-09-21 16:15:59] [DB_CONNECT] Database connected successfully
+[2025-09-21 16:15:59] [DB_QUERY] Fetched data with query: SELECT * FROM admins WHERE email=%s
+[2025-09-21 16:15:59] [ADMIN_LOGIN_FAIL] Invalid credentials for ery@gmail.com
+[2025-09-21 16:15:59] [DB_DISCONNECT] Database connection closed
+[2025-09-21 16:16:16] [DB_CONNECT] Database connected successfully
+[2025-09-21 16:16:16] [DB_QUERY] Executed query: INSERT INTO admins (name, email, password) VALUES (%s, %s, %s)
+[2025-09-21 16:16:16] [ADMIN_REGISTER] Admin abc3@gmail.com registered successfully
+[2025-09-21 16:16:16] [DB_DISCONNECT] Database connection closed
+[2025-09-21 16:16:22] [DB_CONNECT] Database connected successfully
+[2025-09-21 16:16:22] [DB_QUERY] Fetched data with query: SELECT * FROM admins WHERE email=%s
+[2025-09-21 16:16:22] [ADMIN_LOGIN] Admin abc3@gmail.com logged in successfully
+[2025-09-21 16:16:22] [DB_DISCONNECT] Database connection closed
+[2025-09-21 16:20:13] [DB_CONNECT] Database connected successfully
+[2025-09-21 16:20:13] [DB_QUERY] Executed query: INSERT INTO admins (name, email, password) VALUES (%s, %s, %s)
+[2025-09-21 16:20:13] [ADMIN_REGISTER] Admin io@gmail.com registered successfully
+[2025-09-21 16:20:13] [DB_DISCONNECT] Database connection closed
+[2025-09-21 16:20:33] [DB_CONNECT] Database connected successfully
+[2025-09-21 16:20:33] [DB_QUERY] Fetched data with query: SELECT * FROM admins WHERE email=%s
+[2025-09-21 16:20:33] [ADMIN_LOGIN] Admin io@gmail.com logged in successfully
+[2025-09-21 16:20:33] [DB_DISCONNECT] Database connection closed
+[2025-09-21 16:24:13] [DB_CONNECT] Database connected successfully
+[2025-09-21 16:24:13] [DB_QUERY] Fetched data with query: SELECT id, name FROM courses
+[2025-09-21 16:24:13] [DB_QUERY] Fetched data with query: SELECT course_id FROM feedback WHERE student_email=%s
+[2025-09-21 16:24:13] [DB_DISCONNECT] Database connection closed
+[2025-09-21 16:24:25] [DB_CONNECT] Database connected successfully
+[2025-09-21 16:24:25] [DB_QUERY] Fetched data with query: SELECT * FROM admins WHERE email=%s
+[2025-09-21 16:24:25] [ADMIN_LOGIN] Admin io@gmail.com logged in successfully
+[2025-09-21 16:24:25] [DB_DISCONNECT] Database connection closed
+[2025-09-21 16:24:31] [DB_CONNECT] Database connected successfully
+[2025-09-21 16:24:31] [DB_QUERY] Fetched data with query: 
+                SELECT f.id, f.student_email, c.name AS course_name, f.rating, f.comments, f.submitted_at
+                FROM feedback f
+                JOIN courses c ON f.course_id = c.id
+                ORDER BY f.submitted_at DESC
+            
+[2025-09-21 16:24:31] [DB_DISCONNECT] Database connection closed
+[2025-09-21 16:25:12] [DB_CONNECT] Database connected successfully
+[2025-09-21 16:25:12] [DB_QUERY] Fetched data with query: 
+                SELECT f.id, f.student_email, c.name AS course_name, f.rating, f.comments, f.submitted_at
+                FROM feedback f
+                JOIN courses c ON f.course_id = c.id
+                ORDER BY f.submitted_at DESC
+            
+[2025-09-21 16:25:12] [DB_DISCONNECT] Database connection closed
+[2025-09-21 16:30:18] [DB_CONNECT] Database connected successfully
+[2025-09-21 16:30:18] [DB_QUERY] Fetched data with query: SELECT * FROM admins WHERE email=%s
+[2025-09-21 16:30:18] [ADMIN_LOGIN] Admin io@gmail.com logged in successfully
+[2025-09-21 16:30:18] [DB_DISCONNECT] Database connection closed
+[2025-09-21 16:31:05] [DB_CONNECT] Database connected successfully
+[2025-09-21 16:31:05] [DB_QUERY] Fetched data with query: SELECT * FROM admins WHERE email=%s
+[2025-09-21 16:31:05] [ADMIN_LOGIN] Admin io@gmail.com logged in successfully
+[2025-09-21 16:31:05] [DB_DISCONNECT] Database connection closed
+[2025-09-21 16:31:05] [DB_CONNECT] Database connected successfully
+[2025-09-21 16:31:05] [DB_QUERY] Fetched data with query: 
+                SELECT f.id, f.student_email, c.name AS course_name, f.rating, f.comments, f.submitted_at
+                FROM feedback f
+                JOIN courses c ON f.course_id = c.id
+                ORDER BY f.submitted_at DESC
+            
+[2025-09-21 16:31:05] [DB_DISCONNECT] Database connection closed
+[2025-09-21 16:32:15] [DB_CONNECT] Database connected successfully
+[2025-09-21 16:32:15] [DB_QUERY] Fetched data with query: 
+                SELECT f.id, f.student_email, c.name AS course_name, f.rating, f.comments, f.submitted_at
+                FROM feedback f
+                JOIN courses c ON f.course_id = c.id
+                ORDER BY f.submitted_at DESC
+            
+[2025-09-21 16:32:15] [DB_DISCONNECT] Database connection closed
+[2025-09-21 16:32:53] [DB_CONNECT] Database connected successfully
+[2025-09-21 16:32:53] [DB_QUERY] Fetched data with query: SELECT * FROM admins WHERE email=%s
+[2025-09-21 16:32:53] [ADMIN_LOGIN] Admin io@gmail.com logged in successfully
+[2025-09-21 16:32:53] [DB_DISCONNECT] Database connection closed
+[2025-09-21 16:32:53] [DB_CONNECT] Database connected successfully
+[2025-09-21 16:32:53] [DB_QUERY] Fetched data with query: 
+                SELECT f.id, f.student_email, c.name AS course_name, f.rating, f.comments, f.submitted_at
+                FROM feedback f
+                JOIN courses c ON f.course_id = c.id
+                ORDER BY f.submitted_at DESC
+            
+[2025-09-21 16:32:53] [DB_DISCONNECT] Database connection closed
+[2025-09-21 16:34:40] [DB_CONNECT] Database connected successfully
+[2025-09-21 16:34:40] [DB_QUERY] Fetched data with query: 
+                SELECT f.id, f.student_email, c.name AS course_name, f.rating, f.comments, f.submitted_at
+                FROM feedback f
+                JOIN courses c ON f.course_id = c.id
+                ORDER BY f.submitted_at DESC
+            
+[2025-09-21 16:34:40] [DB_DISCONNECT] Database connection closed
+[2025-09-21 16:34:59] [DB_CONNECT] Database connected successfully
+[2025-09-21 16:34:59] [DB_QUERY] Fetched data with query: 
+                SELECT f.id, f.student_email, c.name AS course_name, f.rating, f.comments, f.submitted_at
+                FROM feedback f
+                JOIN courses c ON f.course_id = c.id
+                ORDER BY f.submitted_at DESC
+            
+[2025-09-21 16:34:59] [DB_DISCONNECT] Database connection closed

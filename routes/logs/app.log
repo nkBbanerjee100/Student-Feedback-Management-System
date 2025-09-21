@@ -1,0 +1,8 @@
+[2025-09-20 13:45:05] [DB_CONNECT] Database connected successfully
+[2025-09-20 13:45:05] [DB_ERROR] Query execution failed: 1146 (42S02): Table 'product_db.students' doesn't exist
+[2025-09-20 13:45:05] [REGISTER_FAIL] Error: 1146 (42S02): Table 'product_db.students' doesn't exist
+[2025-09-20 13:45:05] [DB_DISCONNECT] Database connection closed
+[2025-09-20 13:45:14] [DB_CONNECT] Database connected successfully
+[2025-09-20 13:45:14] [DB_ERROR] Fetch failed: 1146 (42S02): Table 'product_db.students' doesn't exist
+[2025-09-20 13:45:14] [LOGIN_FAIL] Error: 1146 (42S02): Table 'product_db.students' doesn't exist
+[2025-09-20 13:45:14] [DB_DISCONNECT] Database connection closed

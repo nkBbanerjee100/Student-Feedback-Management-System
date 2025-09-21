@@ -1,0 +1,12 @@
+/ -> home
+/student/register -> student.register
+/student/login -> student.login
+/student/logout -> student.logout
+/student/dashboard -> student.dashboard
+/feedback/submit_feedback -> feedback.submit_feedback
+/admin/register -> admin.register
+/admin/login -> admin.login
+/admin/view_feedback -> admin.view_feedback
+/admin/logs -> admin.view_logs
+/admin/download_logs -> admin.download_logs
+/admin/logout -> admin.logout
