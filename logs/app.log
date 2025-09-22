@@ -387,3 +387,35 @@
 [2025-09-22 12:54:18] [DB_QUERY] Fetched data with query: SELECT id, name FROM courses
 [2025-09-22 12:54:18] [DB_QUERY] Fetched data with query: SELECT course_id FROM feedback WHERE student_email=%s
 [2025-09-22 12:54:18] [DB_DISCONNECT] Database connection closed
+[2025-09-22 14:24:12] [DB_CONNECT] Database connected successfully
+[2025-09-22 14:24:12] [DB_QUERY] Fetched data with query: SELECT * FROM admins WHERE email=%s
+[2025-09-22 14:24:12] [ADMIN_LOGIN] Admin io@gmail.com logged in successfully
+[2025-09-22 14:24:12] [DB_DISCONNECT] Database connection closed
+[2025-09-22 14:24:12] [DB_CONNECT] Database connected successfully
+[2025-09-22 14:24:12] [DB_QUERY] Fetched data with query: 
+                SELECT f.id, f.student_email, c.name AS course_name, f.rating, f.comments, f.submitted_at
+                FROM feedback f
+                JOIN courses c ON f.course_id = c.id
+                ORDER BY f.submitted_at DESC
+            
+[2025-09-22 14:24:12] [DB_DISCONNECT] Database connection closed
+[2025-09-22 15:46:20] [DB_CONNECT] Database connected successfully
+[2025-09-22 15:46:20] [DB_QUERY] Fetched data with query: SELECT * FROM student WHERE email=%s 
+[2025-09-22 15:46:20] [LOGIN] Student test@gmail.com logged in successfully
+[2025-09-22 15:46:20] [DB_DISCONNECT] Database connection closed
+[2025-09-22 15:46:25] [DB_CONNECT] Database connected successfully
+[2025-09-22 15:46:25] [DB_QUERY] Fetched data with query: SELECT id, name FROM courses
+[2025-09-22 15:46:25] [DB_QUERY] Fetched data with query: SELECT course_id FROM feedback WHERE student_email=%s
+[2025-09-22 15:46:25] [DB_DISCONNECT] Database connection closed
+[2025-09-22 15:46:38] [DB_CONNECT] Database connected successfully
+[2025-09-22 15:46:38] [DB_QUERY] Fetched data with query: SELECT id, name FROM courses
+[2025-09-22 15:46:38] [DB_QUERY] Fetched data with query: SELECT course_id FROM feedback WHERE student_email=%s
+[2025-09-22 15:46:38] [DB_DISCONNECT] Database connection closed
+[2025-09-22 15:46:38] [DB_CONNECT] Database connected successfully
+[2025-09-22 15:46:38] [DB_QUERY] Fetched data with query: SELECT * FROM feedback WHERE student_email=%s AND course_id=%s
+[2025-09-22 15:46:38] [DB_QUERY] Executed query: 
+                INSERT INTO feedback (student_email, course_id, rating, comments)
+                VALUES (%s,%s,%s,%s)
+            
+[2025-09-22 15:46:38] [FEEDBACK] Feedback submitted by test@gmail.com for course_id 2 at 2025-09-22 15:46:38 | Rating: 2 | Comment: good
+[2025-09-22 15:46:38] [DB_DISCONNECT] Database connection closed
