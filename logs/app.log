@@ -375,3 +375,15 @@
                 ORDER BY f.submitted_at DESC
             
 [2025-09-21 16:34:59] [DB_DISCONNECT] Database connection closed
+[2025-09-22 12:53:50] [DB_CONNECT] Database connected successfully
+[2025-09-22 12:53:50] [DB_QUERY] Fetched data with query: SELECT * FROM student WHERE email=%s 
+[2025-09-22 12:53:51] [LOGIN] Student test@gmail.com logged in successfully
+[2025-09-22 12:53:51] [DB_DISCONNECT] Database connection closed
+[2025-09-22 12:53:56] [DB_CONNECT] Database connected successfully
+[2025-09-22 12:53:56] [DB_QUERY] Fetched data with query: SELECT id, name FROM courses
+[2025-09-22 12:53:56] [DB_QUERY] Fetched data with query: SELECT course_id FROM feedback WHERE student_email=%s
+[2025-09-22 12:53:56] [DB_DISCONNECT] Database connection closed
+[2025-09-22 12:54:18] [DB_CONNECT] Database connected successfully
+[2025-09-22 12:54:18] [DB_QUERY] Fetched data with query: SELECT id, name FROM courses
+[2025-09-22 12:54:18] [DB_QUERY] Fetched data with query: SELECT course_id FROM feedback WHERE student_email=%s
+[2025-09-22 12:54:18] [DB_DISCONNECT] Database connection closed
