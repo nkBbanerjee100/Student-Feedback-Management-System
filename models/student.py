@@ -1,10 +1,16 @@
+"""Student domain model for registration, login, and dashboard access."""
+
 from models.database import DatabaseConnection
 from models.logger import Logger
 from mysql.connector import IntegrityError
-from werkzeug.security import check_password_hash,generate_password_hash
+from werkzeug.security import check_password_hash, generate_password_hash
+
 
 class Student:
+    """Represents a student and student-facing account operations."""
+
     def __init__(self, student_id=None, name="", email="", password=""):
+        """Create a student model instance with persistence dependencies."""
         self.student_id = student_id
         self.name = name
         self.email = email
@@ -13,7 +19,7 @@ class Student:
         self.logger = Logger()
 
     def register(self):
-        """Register a new student in the system"""
+        """Register a new student with hashed password storage."""
         try:
             conn = self.db.connect()
             print("db connected")
@@ -37,7 +43,7 @@ class Student:
                 self.logger.write_log("DB_DISCONNECT_FAIL", f"Error disconnecting DB: {str(e)}")
     
     def login(self):
-        """Validate student login"""
+        """Validate student credentials using secure hash verification."""
         try:
             conn = self.db.connect()
             query = "SELECT * FROM student WHERE email=%s "
@@ -48,7 +54,7 @@ class Student:
                 print("Entered password (plain):", self.password)
                 print("Password check:", check_password_hash(stored_hash, self.password))
 
-                if check_password_hash(stored_hash, self.password):  # ✅ secure password check
+                if check_password_hash(stored_hash, self.password):
                     print("success")
                     self.logger.write_log("LOGIN", f"Student {self.email} logged in successfully")
                     return True, "Login successful"
@@ -69,7 +75,7 @@ class Student:
                 self.logger.write_log("DB_DISCONNECT_FAIL", f"Error disconnecting DB: {str(e)}")
 
     def dashboard(self):
-        """Student Dashboard"""
+        """Fetch and return basic profile details for dashboard context."""
         try:
             # Example: fetch student-specific info
             conn = self.db.connect()

@@ -1,3 +1,5 @@
+"""Feedback submission routes for authenticated students."""
+
 from flask import Blueprint, render_template, request, redirect, url_for, session
 from models.feedback import Feedback
 from models.database import DatabaseConnection
@@ -5,9 +7,11 @@ from utils.auth_utils import student_login_required
 
 feedback_bp = Blueprint("feedback", __name__)
 
+
 @feedback_bp.route("/submit_feedback", methods=["GET", "POST"])
 @student_login_required
 def submit_feedback():
+    """Render feedback form and process feedback submission."""
     if "student_email" not in session:
         return redirect(url_for("student.login"))
 
@@ -16,9 +20,9 @@ def submit_feedback():
     reviewed_course_ids = []
     try:
         conn = db.connect()
-        # Get all courses
+        # Populate course dropdown options.
         courses = db.fetch_data("SELECT id, name FROM courses")
-        # Get courses already reviewed by this student
+        # Disable courses already reviewed by this student.
         reviewed = db.fetch_data(
             "SELECT course_id FROM feedback WHERE student_email=%s",
             (session["student_email"],)

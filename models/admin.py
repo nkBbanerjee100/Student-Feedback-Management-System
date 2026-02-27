@@ -1,3 +1,5 @@
+"""Admin domain model for registration, authentication, and dashboard data."""
+
 from models.database import DatabaseConnection
 from models.logger import Logger
 from mysql.connector import IntegrityError
@@ -5,8 +7,12 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import os
 from flask import current_app
 
+
 class Admin:
+    """Represents an admin account and admin-facing operations."""
+
     def __init__(self, admin_id=None, name="", email="", password=""):
+        """Create an Admin model instance with DB and logger dependencies."""
         self.admin_id = admin_id
         self.name = name
         self.email = email
@@ -16,7 +22,7 @@ class Admin:
         self.logger = Logger(logfile=log_path)
 
     def register(self):
-        """Register a new admin with hashed password"""
+        """Register a new admin using a hashed password."""
         try:
             conn = self.db.connect()
             hashed_password = generate_password_hash(self.password)  # Hash password
@@ -37,7 +43,7 @@ class Admin:
                 self.logger.write_log("DB_DISCONNECT_FAIL", f"Error disconnecting DB: {str(e)}")
 
     def login(self):
-        """Validate admin login with hashed password"""
+        """Validate admin credentials against stored password hash."""
         try:
             conn = self.db.connect()
             query = "SELECT * FROM admins WHERE email=%s"
@@ -59,7 +65,7 @@ class Admin:
                 self.logger.write_log("DB_DISCONNECT_FAIL", f"Error disconnecting DB: {str(e)}")
 
     def dashboard(self):
-        """Fetch all feedback with course names as dictionaries"""
+        """Return feedback rows with joined course names for admin dashboard."""
         try:
             conn = self.db.connect()
             query = """
@@ -68,9 +74,8 @@ class Admin:
                 JOIN courses c ON f.course_id = c.id
                 ORDER BY f.submitted_at DESC
             """
-            # Ensure dictionary=True in cursor
             result = self.db.fetch_data(query)
-            # Convert tuples to dicts if needed
+            # Backward-compatible conversion if row format changes.
             feedback_list = []
             for row in result:
                 if isinstance(row, dict):
@@ -92,7 +97,5 @@ class Admin:
         finally:
             try:
                 self.db.disconnect()
-            except:
+            except Exception:
                 pass
-    
-    

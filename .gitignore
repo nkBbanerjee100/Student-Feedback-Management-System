@@ -1,1 +1,2 @@
+# Local environment values (secrets) should never be committed.
 .env

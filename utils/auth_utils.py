@@ -1,8 +1,11 @@
+"""Authentication/authorization decorators for route protection."""
+
 from flask import session, redirect, url_for, flash
 from functools import wraps
 
-# Decorator to protect student routes
 def student_login_required(f):
+    """Require student session before allowing route access."""
+
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if "student_email" not in session:
@@ -11,8 +14,10 @@ def student_login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
-# Decorator to protect admin routes
+
 def admin_login_required(f):
+    """Require admin session before allowing route access."""
+
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if "admin_email" not in session:

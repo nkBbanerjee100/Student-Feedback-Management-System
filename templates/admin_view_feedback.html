@@ -1,4 +1,12 @@
 <!doctype html>
+<!--
+Admin feedback dashboard template.
+Purpose: render all submitted feedback entries and provide log/navigation actions.
+Expected context:
+- feedback_list: iterable of feedback rows with id, student_email, course_name,
+  rating, comments, submitted_at.
+- session: used for conditional admin/student logout controls.
+-->
 <html lang="en">
 
 <head>
